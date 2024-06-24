@@ -30,7 +30,7 @@ jobs:
         uses: hashicorp/terraform-github-actions/init@v0.4.0
       - name: Initialization
         run: terraform init
-        working-directory: ./Terraform
+        working-directory: ./terraform
       - name: Apply the infrastructure
         run: terraform apply -auto-approve
-        working-directory: ./Terraform
+        working-directory: ./terraform
