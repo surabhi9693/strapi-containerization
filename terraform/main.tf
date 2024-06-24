@@ -96,7 +96,7 @@ resource "null_resource" "example" {
       "sudo apt-get update --yes ",
       "sudo apt-get install docker-ce --yes",
       "sudo systemctl status docker --yes",
-      "sudo docker build -t my-strapi-app . --yes ",
+      "sudo docker build -t my-strapi-app . --yes",
       "sudo docker run -p 1337:1337 my-strapi-app"
     ]
 }
