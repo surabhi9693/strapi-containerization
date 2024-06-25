@@ -102,7 +102,7 @@ resource "null_resource" "example" {
       "sudo docker tag my-strapi-app:latest my-strapi-app:1.0.0",
       "username=$(aws ssm get-parameter --name DOCKERHUB_USERNAME --with-decryption --output text --query Parameter.Value)",
       "password=$(aws ssm get-parameter --name DOCKERHUB_PASSWORD --with-decryption --output text --query Parameter.Value)",
-      "sudo docker login https://hub.docker.com/ -u $(username) -p $(password)",
+      "sudo docker login https://hub.docker.com/ --username $(username) --password-stdin $(password)",
       "sudo docker push techsurabhi/my-strapi-app:1.0.0",
       "sudo docker run -p 1337:1337 my-strapi-app"
     ]
