@@ -99,6 +99,9 @@ resource "null_resource" "example" {
       "git clone https://github.com/surabhi9693/strapi-containerization.git",
       "cd strapi-containerization/",
       "sudo docker build -t my-strapi-app .",
+      "sudo docker tag my-strapi-app:latest my-strapi-app:1.0.0",
+      "sudo docker login https://registry.hub.docker.com -u $(DOCKERHUB_USERNAME) -p $(DOCKERHUB_PASSWORD)",
+      "sudo docker push surabhi9693/my-strapi-app:1.0.0,
       "sudo docker run -p 1337:1337 my-strapi-app"
     ]
 }
