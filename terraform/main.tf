@@ -96,15 +96,9 @@ resource "null_resource" "example" {
       "sudo apt-get update --yes ",
       "sudo apt-get install docker-ce --yes",
       "sudo systemctl status docker --yes",
-      "sudo apt-get install -y awscli",
       "git clone https://github.com/surabhi9693/strapi-containerization.git",
       "cd strapi-containerization/",
       "sudo docker build -t my-strapi-app .",
-      "sudo docker tag my-strapi-app:latest my-strapi-app:1.0.0",
-      "username=$(aws ssm get-parameter --name DOCKERHUB_USERNAME --with-decryption --output text --query Parameter.Value)",
-      "password=$(aws ssm get-parameter --name DOCKERHUB_PASSWORD --with-decryption --output text --query Parameter.Value)",
-      "sudo docker login https://hub.docker.com/ --username $(username) --password-stdin $(password)",
-      "sudo docker push techsurabhi/my-strapi-app:1.0.0",
       "sudo docker run -p 1337:1337 my-strapi-app"
     ]
 }
