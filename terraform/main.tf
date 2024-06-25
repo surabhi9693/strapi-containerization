@@ -89,17 +89,17 @@ resource "null_resource" "example" {
       host        = aws_instance.strapi-ec2.public_ip
     }
     inline = [
-      "sudo apt-get update",
-      "sudo apt-get install apt-transport-https ca-certificates curl software-properties-common",
-      "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -",
+      "sudo apt-get update  --yes",
+      "sudo apt-get install apt-transport-https ca-certificates curl software-properties-common  --yes",
+      "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -  --yes",
       "sudo add-apt-repository deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable --yes",
       "sudo apt-get update --yes ",
       "sudo apt-get install docker-ce --yes",
       "sudo systemctl status docker --yes",
-      "git clone https://github.com/surabhi9693/strapi-containerization.git",
-      "cd strapi-containerization/",
-      "sudo docker build -t my-strapi-app .",
-      "sudo docker run -p 1337:1337 my-strapi-app"
+      "git clone https://github.com/surabhi9693/strapi-containerization.git  --yes",
+      "cd strapi-containerization/  --yes",
+      "sudo docker build -t my-strapi-app .  --yes",
+      "sudo docker run -p 1337:1337 my-strapi-app  --yes"
     ]
 }
  depends_on = [
