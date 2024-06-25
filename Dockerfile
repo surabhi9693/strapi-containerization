@@ -1,20 +1,23 @@
-# Use an official Node.js runtime as a parent image
+# Use an official Node runtime as a parent image
 FROM node:14
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json to the container
+# Install PM2 globally
+RUN npm install -g pm2
+
+# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-# Install Strapi dependencies
+# Install Strapi and dependencies
 RUN npm install
 
-# Copy the rest of the application code to the container
+# Copy the current directory contents into the container at /usr/src/app
 COPY . .
 
-# Expose the port Strapi runs on (default is 1337)
+# Expose the port that Strapi runs on
 EXPOSE 1337
 
-# Start the Strapi application
-CMD ["npm", "start"]
+# Run Strapi with PM2
+CMD ["pm2-runtime", "start", "npm", "--", "start"]
