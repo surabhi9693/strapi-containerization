@@ -96,7 +96,7 @@ resource "null_resource" "example" {
       "sudo apt-get update --yes ",
       "sudo apt-get install docker-ce --yes",
       "sudo systemctl status docker --yes",
-      "sudo apt-get install -y awscli"
+      "sudo apt-get install -y awscli",
       "git clone https://github.com/surabhi9693/strapi-containerization.git",
       "cd strapi-containerization/",
       "sudo docker build -t my-strapi-app .",
