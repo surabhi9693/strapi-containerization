@@ -101,7 +101,7 @@ resource "null_resource" "example" {
       "sudo docker build -t my-strapi-app .",
       "sudo docker tag my-strapi-app:latest my-strapi-app:1.0.0",
       "sudo docker login https://registry.hub.docker.com -u $(DOCKERHUB_USERNAME) -p $(DOCKERHUB_PASSWORD)",
-      "sudo docker push techsurabhi/my-strapi-app:1.0.0,
+      "sudo docker push techsurabhi/my-strapi-app:1.0.0",
       "sudo docker run -p 1337:1337 my-strapi-app"
     ]
 }
