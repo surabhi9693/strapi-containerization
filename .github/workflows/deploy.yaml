@@ -32,5 +32,5 @@ jobs:
         run: terraform init
         working-directory: ./terraform
       - name: Apply the infrastructure
-        run: terraform apply -auto-approve
+        run: terraform destroy -auto-approve
         working-directory: ./terraform
